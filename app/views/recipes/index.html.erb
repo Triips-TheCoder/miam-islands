@@ -1,0 +1,34 @@
+<div class="all-recipe">
+<p id="notice"><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ingredient</th>
+      <th>Preparation</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.name %></td>
+        <td><%= recipe.ingredient %></td>
+        <td><%= recipe.preparation %></td>
+        <td><%= link_to 'Show', recipe, id:"show", class:"link-hover" %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe), id:"edit", class:"link-hover" %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }, id:"destroy" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<nav>
+<%= link_to 'Publier une recette', new_recipe_path, class:"link-hover", id:"link-index" %>
+<%= link_to 'Home', recipes_path, class:"link-hover" %>
+</nav>
+</div>

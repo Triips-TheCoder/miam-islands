@@ -1,0 +1,31 @@
+<main class="main">
+    <section class="main__container">
+      <h1>Bienvenue sur <span class="mi-color">Miam Island.</span></h1>
+      <div class="main__content-container">
+        <div class="main__text">
+          <p>Tu es un fan de nourriture exotique ? Tu te trouves au bon endroit.<br>
+          Ici tu pourras partager et découvrir des recettes exotiques<br>
+          provenant de différentes îles du monde de la Guadeloupe en passant<br>
+          par la Réunion. Il te reste encore beaucoup de plat à découvrir !
+          </p>
+          <h2>Comment partager ma recette ?</h2>
+          <p>C’est très simple, il te suffit juste de cliquer sur le bouton<br>
+          <span class="bold-text">“ Partager ma recette”</span> puis mettre le titre de ta  recette,<br> 
+          les ingrédients, et les explications pour réaliser ta recette.<br> 
+          Tu peux même poster tes propres créations culinaires pour<br>impréssionné le monde avec tes talents de chef !
+          </p> 
+        <div class="main__cta-wrapper">
+        <span>
+          <a class="main__button main__button--action" href="#"><span class="bold-text">Découvrir des recettes</span></a>
+          </span>
+          <span>
+          <a class="main__button main__button--action" href="<%= new_recipe_path %>"><span class="bold-text">Partager ma recette</span></a>
+          </span>
+        </div>
+        </div>
+        <div class="main__img-wrapper">
+        <%= image_tag('mi-img1.svg', alt:"Illustration colorée avec des personnages tenant des légumes")%>
+        </div>
+      </div>
+    </section>
+</main>

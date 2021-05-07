@@ -1,0 +1,118 @@
+$cta-color: #ffcc00;
+$cta-active-color: #080708;
+ 
+.main {
+    display: flex;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        h1 {
+            white-space: nowrap;
+        }
+    }
+
+    &__content-container {
+        display: flex;
+    }
+
+    &__img-wrapper {
+        flex-basis: 50%;
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__text {
+        flex-basis: 50%;
+        flex-shrink: 0;
+
+        p:first-of-type {
+            margin-bottom: 2.5rem;
+        }
+
+        p:last-of-type {
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.main__cta-wrapper {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    flex-shrink: 0;
+
+    span:first-of-type::before, span:last-of-type::before {
+        transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    span {
+        
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 999px;
+        border: 1px solid $cta-color;
+
+        &::before {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            border-radius: 999px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: $cta-color;
+        }
+
+        &:hover::before {
+            opacity: 1;
+        }
+    }   
+
+    span:first-of-type {
+      margin-right: 4rem;
+    }
+
+    span:nth-of-type(2) {
+      position: relative;
+        &::before {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            border-radius: 999px;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: $cta-color;
+        }
+        
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+
+    a {
+        padding: 1.8rem;
+    }
+
+    a:last-child {
+        span {
+            border: none;
+            margin: 0;
+        }
+    }
+}
