@@ -1,20 +1,24 @@
-// Variable 
+// Variable
 $text-color: #080708;
-$main-color:  #4B73F5; 
-$cta-color: #FFCC00;
+$main-color: #4b73f5;
+$cta-color: #ffcc00;
 
+::selection {
+    background-color: $cta-color;
+}
 html {
     font-size: 62.5%;
 }
 
-*,body {
+*,
+body {
     margin: 0;
     padding: 0;
 }
 
 body {
-  padding: 10.151515vh 7.192646vw 0 7.192646vw;
-  overflow-x: hidden;
+    // padding: 10.151515vh 7.192646vw 0 7.192646vw;
+    overflow-x: hidden;
 }
 
 *,
@@ -29,33 +33,43 @@ h2 {
 }
 
 h1 {
+    z-index: 10;
     font-size: clamp(6.8rem, 1vw, 13.6rem);
 }
 
 h2 {
-    font-size: 2.6rem;
+    font-size: clamp(2.6rem, 1.2vw, 7.6rem);
+    @media (min-width: '1500px') {
+        font-size: clamp(2.6rem, 1.8vw, 7.6rem);
+    }
 }
 
-p{
-  font-family: "Manjari";
-  font-size: 1.6rem;
-  line-height: 2;
+p {
+    font-family: 'Manjari';
+    font-size: clamp(1.6rem, 1.2vw, 6.6rem);
+    line-height: 2;
 }
 
-a{
-  font-family: "Manjari";
-  font-size: 1.6rem;
-  color: inherit;
-  text-decoration: none;
+a {
+    font-family: 'Manjari';
+    font-size: clamp(1.6rem, 1.2vw, 6.6rem);
+    padding: 1em;
+    color: inherit;
+    text-decoration: none;
+
+    @media (max-width:"280px") {
+        white-space: nowrap;
+        padding: 1.5em;
+    }
 }
 
 .bold-text {
-  font-family: inherit;
-  font-weight: bold;
+    font-family: inherit;
+    font-weight: bold;
 }
 
 .mi-color {
-  color: $main-color;
+    color: $main-color;
 }
 
 pre {
@@ -109,36 +123,46 @@ label {
 }
 
 #logo {
-  position: fixed; 
-  top: 3.5vh;
-  left: 7vmin;
+    position: fixed;
+    top: 4.5vh;
+    left: 3.5vw;
+    width: 3%;
+    min-width: 32px;
+
+    @media (max-width: '1250px') {
+        top: 3.5vh;
+        left: 3.5vw;
+    }
+}
+
+span {
+    display: inline-block;
 }
 
 .link-hover {
-  position: relative;
-  font-weight: bold;
-  transition: color 0.6s cubic-bezier(.23,1,.32,1);
-  
-  &::before {
-    content:"";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 0.1rem;
-    width: 100%;
-    transition: transform 0.6s cubic-bezier(.23,1,.32,1);
-    background-color: $main-color;
-    transform: scaleX(0);
-    transform-origin: right;
-  }
+    position: relative;
+    font-weight: bold;
+    transition: color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 
-  &:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-  
-  &:hover {
-    color: $main-color;
-  }
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 0.1rem;
+        width: 100%;
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        background-color: $main-color;
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+
+    &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    &:hover {
+        color: $main-color;
+    }
 }
-
