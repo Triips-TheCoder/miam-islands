@@ -17,18 +17,16 @@
   </div>
 
   <div class="field">
-    <%= form.label :"Ingrédients :" %>
-    <%= form.text_area :ingredient %>
+  <label for="recipe_Ingrédients :">Ingrédients :</label>
+  <textarea name="recipe[ingredient]" id="recipe_ingredient" rows="5" cols="40"></textarea>
   </div>
 
   <div class="field">
-    <%= form.label :"Préparation :" %>
-    <%= form.text_area :preparation %>
+  <label for="recipe_Préparation :">Préparation :</label>
+  <textarea name="recipe[preparation]" id="recipe_preparation" rows="5" cols="40"></textarea>
   </div>
 
   <div class="actions">
         <input class="submit-button" type="submit" name="commit" value="Publier votre recette" data-disable-with="Create Recipe">
   </div>
-
-  <%= link_to 'Back', recipes_path, class:"link-hover" %>
 <% end %>

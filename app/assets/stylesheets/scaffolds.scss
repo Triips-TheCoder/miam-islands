@@ -34,7 +34,7 @@ h2 {
 
 h1 {
     z-index: 10;
-    font-size: clamp(6.8rem, 1vw, 13.6rem);
+    // font-size: clamp(6.8rem, 1vw, 13.6rem);
 }
 
 h2 {
@@ -57,7 +57,7 @@ a {
     color: inherit;
     text-decoration: none;
 
-    @media (max-width:"280px") {
+    @media (max-width: '280px') {
         white-space: nowrap;
         padding: 1.5em;
     }
@@ -78,10 +78,10 @@ pre {
     font-size: 11px;
 }
 
-div.field,
-div.actions {
+div.field {
     margin-bottom: 10px;
 }
+
 
 #notice {
     color: green;
@@ -119,7 +119,7 @@ div.actions {
 label {
     display: block;
     font-family: 'Poppins', sans-serif;
-    font-size: 2.6rem;
+    font-size: clamp(1.6rem, 1.2vw, 6.6rem);
 }
 
 #logo {
@@ -143,7 +143,8 @@ span {
     position: relative;
     font-weight: bold;
     transition: color 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-
+    padding: 0;
+    
     &::before {
         content: '';
         position: absolute;
@@ -165,4 +166,8 @@ span {
     &:hover {
         color: $main-color;
     }
+}
+
+#form-test {
+    width: 100%;
 }

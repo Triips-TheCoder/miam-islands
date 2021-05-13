@@ -6,8 +6,8 @@
           <span word-animation="translate" class="mi-color" id="anim-intro">
               <span class="anim-title" style="--index:1;">Miam</span> 
               <span  style="--index:1;">Miam</span>
-              <span class="anim-title"  style="--index:2;">Island.</span>
-              <span style="--index:2;">Island.</span>
+              <span class="anim-title"  style="--index:1;">Island.</span>
+              <span style="--index:1;">Island.</span>
           </span>
       </h1>
       <div class="main__content-container">
@@ -39,36 +39,3 @@
     </section>
 </main>
 
-<script>
-const splitTargets = document.querySelectorAll('[split-by]'); 
-console.log(splitTargets);
-
-const span = (text, index) => {
-  const node = document.createElement('span');
-
-  node.textContent = text;
-  node.style.setProperty('--index', index);
-
-  return node;
-};
-
-const byLetter = text => [...text].map(span);
-
-const byWord = text => text.split(' ').map(span);
-
-splitTargets.forEach(node => {
-  const type = node.getAttribute('split-by');
-  let nodes = null;
-
-  if (type === 'letter') {
-    nodes = byLetter(node.innerText);
-  }
-  else if (type === 'word') {
-    nodes = byWord(node.innerText);
-  }
-
-  if (nodes) {
-    node.firstChild.replaceWith(...nodes);
-  }
-});
-</script>
