@@ -1,11 +1,12 @@
-const { matches: enableMotion } = window.matchMedia(
+const { matches: deviceOK } = window.matchMedia(
   '(min-width: 1100px)'
 );
+const { matches: motionOK } = window.matchMedia(
+  '(prefers-reduced-motion: no-preference)'
+);
 
-if (enableMotion) {
+if (motionOK && deviceOK) {
   const splitTargets = document.querySelectorAll('[split-by]');
-  console.log(splitTargets);
-
   const span = (text, index) => {
     const node = document.createElement('span');
 
@@ -35,3 +36,6 @@ if (enableMotion) {
     }
   });
 };
+
+
+

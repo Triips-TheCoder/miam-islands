@@ -157,71 +157,73 @@ $main-color: #4b73f5;
             margin: 0;
         }
     }
-}   
+}
 
-@media(max-width: "1100px") {
+@media (max-width: '1100px') {
     .anim-title {
         display: none;
     }
 }
 
-@media (min-width: '1100px') {
-    #bg-intro {
-        z-index: 10;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: $main-color;
-        opacity: 1;
-        animation: opacity 2s cubic-bezier(0.2, 0.2, 0.03, 1) 3s forwards;
-        animation-iteration-count: 1;
-        pointer-events: none;
-    }
-
-    #home-title-animation {
-        position: relative;
-        overflow: hidden;
-
-        span {
-            transform: translate3d(0, 100%, 0);
+@media (min-width: '1100px') and (prefers-reduced-motion: no-preference) {
+    .main.active {
+        #bg-intro {
+            z-index: 10;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: $main-color;
+            opacity: 1;
+            animation: opacity 2s cubic-bezier(0.2, 0.2, 0.03, 1) 3s forwards;
+            animation-iteration-count: 1;
+            pointer-events: none;
         }
 
-        span:first-child {
-            white-space: break-spaces;
+        #home-title-animation {
+            position: relative;
+            overflow: hidden;
+
+            span {
+                transform: translate3d(0, 100%, 0);
+            }
+
+            span:first-child {
+                white-space: break-spaces;
+            }
+
+            [letter-animation='translate'] > span {
+                animation: translate 1.8s cubic-bezier(0.2, 0.2, 0.03, 1)
+                    calc((var(--index) * 120) * 1ms) forwards;
+            }
+
+            [word-animation='translate'] > span:nth-child(even) {
+                animation: translate 2s cubic-bezier(0.2, 0.2, 0.03, 1)
+                        calc((var(--index) * 1500) * 1ms) forwards,
+                    opacity 2s cubic-bezier(0.2, 0.2, 0.03, 1) reverse forwards;
+            }
+
+            [word-animation='translate'] > span:nth-child(odd) {
+                z-index: 20;
+                position: absolute;
+                color: white;
+                animation: translate 2s cubic-bezier(0.2, 0.2, 0.03, 1)
+                        calc((var(--index) * 1500) * 1ms) forwards,
+                    opacity 2s cubic-bezier(0.2, 0.2, 0.03, 1) 3s forwards;
+            }
         }
 
-        [letter-animation='translate'] > span {
-            animation: translate 1.8s cubic-bezier(0.2, 0.2, 0.03, 1)
-                calc((var(--index) * 120) * 1ms) forwards;
+        @keyframes translate {
+            to {
+                transform: translate3d(0, -100%, 0);
+            }
         }
 
-        [word-animation='translate'] > span:nth-child(even) {
-            animation: translate 2s cubic-bezier(0.2, 0.2, 0.03, 1)
-                    calc((var(--index) * 1500) * 1ms) forwards,
-                opacity 2s cubic-bezier(0.2, 0.2, 0.03, 1) reverse forwards;
-        }
-
-        [word-animation='translate'] > span:nth-child(odd) {
-            z-index: 20;
-            position: absolute;
-            color: white;
-            animation: translate 2s cubic-bezier(0.2, 0.2, 0.03, 1)
-                    calc((var(--index) * 1500) * 1ms) forwards,
-                opacity 2s cubic-bezier(0.2, 0.2, 0.03, 1) 3s forwards;
-        }
-    }
-
-    @keyframes translate {
-        to {
-            transform: translate3d(0, -100%, 0);
-        }
-    }
-
-    @keyframes opacity {
-        to {
-            opacity: 0;
+        @keyframes opacity {
+            to {
+                opacity: 0;
+            }
         }
     }
 }
