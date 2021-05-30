@@ -42,9 +42,15 @@ $main-color: #4b73f5;
     &__img-wrapper {
         flex-basis: 55%;
 
-        img {
+        span {
             width: 100%;
-            object-fit: contain;
+            height: 100%;
+            // image-rendering: -webkit-optimize-contrast;
+
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
         }
     }
 
@@ -210,8 +216,7 @@ $main-color: #4b73f5;
 
         [word-animation='translate'] > span:nth-child(even) {
             opacity: 0;
-            transition: transform 1.8s cubic-bezier(0.17, 0.84, 0.44, 1)
-                    0.8s,
+            transition: transform 1.8s cubic-bezier(0.17, 0.84, 0.44, 1) 0.8s,
                 opacity 1.6s cubic-bezier(0.17, 0.84, 0.44, 1);
         }
 
@@ -220,8 +225,7 @@ $main-color: #4b73f5;
             position: absolute;
             color: white;
             opacity: 1;
-            transition: transform 1.8s cubic-bezier(0.17, 0.84, 0.44, 1)
-                   0.8s,
+            transition: transform 1.8s cubic-bezier(0.17, 0.84, 0.44, 1) 0.8s,
                 opacity 1.6s cubic-bezier(0.17, 0.84, 0.44, 1) 1.8s;
         }
 
@@ -283,8 +287,7 @@ $main-color: #4b73f5;
         span {
             transform: translate3d(50%, 0, 0);
             opacity: 0;
-            transition: transform 1.8s cubic-bezier(0.17, 0.84, 0.44, 1),
-                opacity 1s ease;
+            transition: transform 1.8s cubic-bezier(0.17, 0.84, 0.44, 1), opacity 1s ease;
         }
     }
 
