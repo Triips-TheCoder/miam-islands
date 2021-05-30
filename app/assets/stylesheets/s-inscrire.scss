@@ -1,0 +1,81 @@
+$text-color: #080708;
+$main-color: #4b73f5;
+$cta-color: #ffcc00;
+
+#sign_up-title {
+    padding: 1.5rem;
+    font-size: clamp(3.6rem, 4vw, 7.6rem);
+}
+
+#sign_up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main__sign-text {
+  a {
+      padding: 0;
+      color: $main-color;
+      text-decoration: underline;
+  }
+}
+
+#new_person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    height: 80%;
+    margin: 0 auto 3rem;
+    padding: 1.5rem;
+    border: solid 2px $main-color;
+    border-radius: 10px;
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+
+        label {
+            font-size: clamp(1.4rem, 1.6vw, 6.6rem);
+            text-align: center; 
+        }
+        
+        em {
+            font-size: clamp(1.4rem, 1.2vw, 6.6rem);
+        }
+        
+    }
+
+    #person_email,
+    #person_password,
+    #person_password_confirmation {
+        width: 100%;
+    }
+
+    .actions {
+        margin-bottom: 0;
+
+        input {
+            width: 10em;
+            text-align: center;
+            vertical-align: text-top;
+            font-size: clamp(1.4rem, 1.2vw, 6.6rem);
+            border: 1px solid $cta-color;
+            padding: 0.6em 0.8em;
+            background: none;
+            border-radius: 999px;
+            cursor: pointer;
+            caret-color: $main-color;
+            // &:hover {
+            //     background-color: $cta-color;
+            // }
+        }
+    }
+}
