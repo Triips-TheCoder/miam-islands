@@ -185,6 +185,7 @@ $main-color: #4b73f5;
             perspective: 1000px;
             overflow: hidden;
             transform-style: preserve-3d;
+            transition: opacity 0s;
         }
         // span {
         //     transform: translate3d(0, 100%, 0);

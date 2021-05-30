@@ -1,31 +1,49 @@
-const { matches: deviceOK } = window.matchMedia(
-  '(min-width: 1100px)'
+const { matches: XsAndLDeviceOK } = window.matchMedia(
+  '(max-width: 1100px)'
 );
-const { matches: XsDeviceOK } = window.matchMedia(
-  '(max-width: 600px)'
+const { matches: XLdeviceOK } = window.matchMedia(
+  '(min-width: 1100px)'
 );
 const { matches: motionOK } = window.matchMedia(
   '(prefers-reduced-motion: no-preference)'
 );
-const homePageContainer = document.querySelector('#main-home-page');
-const homePageContent = document.querySelector('#content-home-page');
-const animTitle= document.querySelector('.mi-color');
-const homeLinksContainer = document.querySelector('#home-links-container');
-const body = document.body; 
-const homeIllustrationContainer = document.querySelector('#home-illustration-container');
+const navBar = document.querySelector('#nav-bar');
+const urlWords = ["recipes", "people"];
 
-window.addEventListener('load', () => {
-  homePageContainer.classList.add("active");
-});
+// Mobile and Tablet
+if (motionOK && XsAndLDeviceOK) {
+  navBar.classList.add("active");
+};
 
-animTitle.addEventListener('transitionend', () => {
-  homePageContent.classList.add('active')
-  body.classList.add('active');
-  homeLinksContainer.classList.add('active');
-  homeIllustrationContainer.classList.add('active');
-})
+//check the url and add a class to the navbar
+if (window.location.href.includes(urlWords[0]) || window.location.href.includes(urlWords[1])) {
+  navBar.classList.add("active");
+}
 
-if (motionOK && deviceOK) {
+// Desktop
+if (motionOK && XLdeviceOK) {
+  const homePageContainer = document.querySelector('#main-home-page');
+  const homePageContent = document.querySelector('#content-home-page');
+  const animTitle = document.querySelector('.mi-color');
+  const homeLinksContainer = document.querySelector('#home-links-container');
+  const homeIllustrationContainer = document.querySelector('#home-illustration-container');
+
+  document.addEventListener('readystatechange', e => {
+    if (e.target.readyState === 'complete') {
+      homePageContainer.classList.add("active");
+    } else {
+      return;
+    }
+  });
+
+  animTitle.addEventListener('transitionend', () => {
+    homePageContent.classList.add('active');
+    navBar.classList.add('active');
+    homeLinksContainer.classList.add('active');
+    homeIllustrationContainer.classList.add('active');
+  });
+
+  // Letter animation
   const splitTargets = document.querySelectorAll('[split-by]');
   const span = (text, index) => {
     const node = document.createElement('span');
@@ -57,14 +75,5 @@ if (motionOK && deviceOK) {
   });
 };
 
-// if (motionOK && XsDeviceOK) {
-//   const hamburger = document.querySelector('#hamburger');
-//   const fullNav = document.querySelector('#full-nav');
-
-//   hamburger.addEventListener('click', () => {
-//     hamburger.classList.toggle('active');
-//     fullNav.classList.toggle('active');
-//   });
-// }
 
 

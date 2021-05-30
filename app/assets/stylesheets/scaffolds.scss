@@ -18,19 +18,27 @@ body {
 }
 
 body {
-    // padding: 10.151515vh 7.192646vw 0 7.192646vw;
     overflow-x: hidden;
+    animation: fadeIn 1.6s cubic-bezier(0.2, 0.2, 0.03, 1) forwards;
+}
 
-    #nav-bar {
-        transform: translate3d(0, -100%, 0); 
-        transition: transform 1.8s cubic-bezier(0.08,0.82,0.17,1);
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 
-body.active {
-    #nav-bar {
-        transform: translate3d(0, 0, 0); 
-    }
+#nav-bar {
+    transform: translate3d(0, -100%, 0);
+    transition: transform 1.8s cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+
+#nav-bar.active {
+    transform: translate3d(0, 0, 0);
 }
 
 *,
@@ -194,8 +202,8 @@ span {
             margin-right: 2em;
 
             @media (max-width: '600px') {
-                display: none;    
-             }
+                display: none;
+            }
         }
 
         .preselect-cta {
